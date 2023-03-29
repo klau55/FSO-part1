@@ -20,16 +20,31 @@ const App = () => {
   ]
    
   const [selected, setSelected] = useState(0)
-
+  const [votes, setVotes] = useState(new Uint8Array(anecdotes.length))
   function randomAnecdote(max) {
     return Math.floor(Math.random() * max);
   }
- 
+
+  
+  console.log(votes)
+
+  const vote = () => {
+
+    const copy = [...votes]
+// increment the value in position 2 by one
+    copy[selected] += 1   
+    setVotes(copy)
+
+  }
+
 
   return (
     <div>
       {anecdotes[selected]}
-      <br></br>
+      <br />
+      Has {votes[selected]} votes
+      <br />
+      <Button handleClick={() => vote() } text="vote"/>       
       <Button handleClick={() => setSelected(randomAnecdote(anecdotes.length)) } text="next anecdote"/>  
     </div>
   )
