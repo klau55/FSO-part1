@@ -51,7 +51,6 @@ const App = () => {
       <Button handleClick={() => setSelected(randomAnecdote(anecdotes.length)) } text="next anecdote"/>  
       <br />
       <h1>Anecdote with most votes:</h1>
-      <br />
       {anecdotes[top]}
       <br />
       has {votes[top]} votes
